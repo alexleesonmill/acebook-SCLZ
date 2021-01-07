@@ -22,4 +22,13 @@ RSpec.feature 'Timeline', type: :feature do
     click_link 'Timeline'
     expect(page).not_to have_button('Add Comment')
   end
+
+  it 'cant be edited after 10 mins' do
+    register
+    click_link 'Timeline'
+    click_link 'New Post'
+    fill_in 'Message', with: 'this is a post'
+    Timecop.freeze(Time.now + 601.seconds)
+    expect(page).not_to have_button('Edit comment')
+  end
 end

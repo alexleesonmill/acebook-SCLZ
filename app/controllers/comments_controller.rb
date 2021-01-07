@@ -28,14 +28,12 @@ class CommentsController < ApplicationController
   end
 
   def update
-      @comment = Comment.find(params[:id])
-      if current_user.id == @comment.user_id
-        if @comment.update(comment_params)
-          redirect_to posts_url
-        end
-      else
-        redirect_to posts_path
+    @comment = Comment.find(params[:id])
+    if current_user.id == @comment.user_id
+      if @comment.update(comment_params)
+        redirect_to posts_url
       end
+    end
   end
 
   def destroy
