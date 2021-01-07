@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PostsController < ApplicationController
   def new
     @post = Post.new
@@ -27,22 +29,22 @@ class PostsController < ApplicationController
       flash[:notice] = "You cannot edit someone else's post"
       redirect_to posts_url
     elsif Time.now - @post.created_at > 600
-      flash[:notice] = "Posts cannot be updated after 10 minutes"
+      flash[:notice] = 'Posts cannot be updated after 10 minutes'
       redirect_to posts_url
     end
   end
 
   def update
-      @post = Post.find(params[:id])
-      if current_user.id == @post.user_id
-        if @post.update(post_params)
-          redirect_to posts_url
-        else
-          render :edit
-        end
+    @post = Post.find(params[:id])
+    if current_user.id == @post.user_id
+      if @post.update(post_params)
+        redirect_to posts_url
       else
-        redirect_to posts_path
+        render :edit
       end
+    else
+      redirect_to posts_path
+    end
   end
 
   private

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.feature 'Adding friends', type: :feature do
@@ -37,7 +39,7 @@ RSpec.feature 'Adding friends', type: :feature do
     click_link 'Add as friend'
     expect(page).to have_content "Test123's profile page"
     expect(page).not_to have_link('Add as friend')
-    expect(page).to have_content "You are waiting for Test123 to respond to your friend request"
+    expect(page).to have_content 'You are waiting for Test123 to respond to your friend request'
   end
 
   scenario 'When another user has sent a friend request, the add friend button is no loger visible on their page and replaced with a message' do
@@ -53,11 +55,10 @@ RSpec.feature 'Adding friends', type: :feature do
     click_link 'Testy123'
     expect(page).to have_content "Testy123's profile page"
     expect(page).not_to have_link('Add as friend')
-    expect(page).to have_content "Testy123 is waiting for you to respond to their"
+    expect(page).to have_content 'Testy123 is waiting for you to respond to their'
     expect(page).to have_link('friend request')
   end
 end
-
 
 # further tests:
 # cant see add friend button when friend

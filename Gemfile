@@ -32,11 +32,11 @@ gem 'travis'
 
 gem 'devise'
 
-gem 'bulma-rails', '~> 0.9.1'
-gem 'jquery-rails'
 gem 'acts_as_votable'
-gem 'timecop'
+gem 'bulma-rails', '~> 0.9.1'
 gem 'carrierwave'
+gem 'jquery-rails'
+gem 'timecop'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
