@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
   has_many :likes, dependent: :destroy
   # Include default devise modules. Others available are:
@@ -10,5 +12,4 @@ class User < ApplicationRecord
   acts_as_voter
 
   has_friendship
-
 end

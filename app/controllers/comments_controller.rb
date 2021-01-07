@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class CommentsController < ApplicationController
-  before_action :find_post, only: [:create, :edit, :update]
-  before_action :find_comment, only: [:edit, :update]
+  before_action :find_post, only: %i[create edit update]
+  before_action :find_comment, only: %i[edit update]
   respond_to :js, :html, :json
 
   def index
@@ -17,7 +19,7 @@ class CommentsController < ApplicationController
       flash[:notice] = "You cannot edit someone else's post"
       redirect_to posts_url
     elsif Time.now - @comment.created_at > 600
-      flash[:notice] = "Posts cannot be updated after 10 minutes"
+      flash[:notice] = 'Posts cannot be updated after 10 minutes'
       redirect_to posts_url
     end
   end
@@ -30,9 +32,7 @@ class CommentsController < ApplicationController
   def update
     @comment = Comment.find(params[:id])
     if current_user.id == @comment.user_id
-      if @comment.update(comment_params)
-        redirect_to posts_url
-      end
+      redirect_to posts_url if @comment.update(comment_params)
     end
   end
 
@@ -49,9 +49,10 @@ class CommentsController < ApplicationController
 
   def like
     @comment = Comment.find(params[:id])
-    if params[:format] == 'like'
+    case params[:format]
+    when 'like'
       @comment.liked_by current_user
-    elsif params[:format] == 'unlike'
+    when 'unlike'
       @comment.unliked_by current_user
     end
   end

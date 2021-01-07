@@ -1,5 +1,6 @@
-require 'rails_helper'
+# frozen_string_literal: true
 
+require 'rails_helper'
 
 RSpec.feature 'User Registration', type: :feature do
   scenario 'Can register to use SCZL' do
