@@ -28,7 +28,7 @@
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
+    <%= f.label :password_confirmation %>
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
@@ -47,8 +47,8 @@
 </div>
 
 
-<h3 class="columns is-centered mt-4">Unhappy? Delete your account below</h3>
+<h3 class="columns is-centered mt-4 mb-0">Unhappy? Delete your account below</h3>
 
-<div class="columns is-centered mt-2"> <%= button_to "Delete account", registration_path(resource_name), data: { confirm: "Really?" }, method: :delete, class: 'columns mt-3 has-background-danger' %></div>
+<div class="columns is-centered mt-0"> <%= button_to "Delete account", registration_path(resource_name), data: { confirm: "Really?" }, method: :delete, class: 'columns mt-3 has-background-danger' %></div>
 
 <div class="columns is-centered"><%= link_to "Back", :back %></div>
