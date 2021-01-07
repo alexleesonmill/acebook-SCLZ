@@ -25,4 +25,10 @@ RSpec.feature 'Editing comments', type: :feature do
     user_two
     expect(page).not_to have_button('Edit comment')
   end
+
+  it 'cant be edited after 10 mins' do
+    make_comment
+    Timecop.freeze(Time.now + 601.seconds)
+    expect(page).not_to have_button('Edit comment')
+  end
 end

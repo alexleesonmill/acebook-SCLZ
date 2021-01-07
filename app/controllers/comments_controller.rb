@@ -33,8 +33,6 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
     if current_user.id == @comment.user_id
       redirect_to posts_url if @comment.update(comment_params)
-    else
-      redirect_to posts_path
     end
   end
 
