@@ -12,8 +12,8 @@
     }
 </style>
 <div class="column is-centered is-one-third" style="width: 45%; margin-left: 27.5%">
-<% @posts.sort_by(&:id).reverse.each do |post| %>
-  <% @current_post = post %>
+  <% @posts.sort_by(&:id).reverse.each do |post| %>
+    <% @current_post = post %>
     <div class='row mb-2' style="min-width: 100%; border: 1px solid #3298dc; border-radius: 5px">
       <div class="card is-centered">
 
@@ -25,7 +25,7 @@
 
         <div class="card-content m-2">
           <p class='is-success is-family-code'>
-            <%= image_tag post.picture_url, width: '20%' if post.picture.present? %>
+            <%= image_tag post.picture, width: '40%' if post.picture.present? %>
             <%= simple_format post.message%>
           </p>
         </div>
@@ -66,4 +66,3 @@
     </div>
   <% end %>
 </div>
-
