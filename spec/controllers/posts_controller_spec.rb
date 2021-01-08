@@ -55,7 +55,9 @@ RSpec.describe PostsController, type: :controller do
       sign_in(user)
       post :create, params: { post: { message: 'Hello, world!', user_id: user.id } }
       post = Post.find_by(message: 'Hello, world!')
-      patch :update, params: { id: post.id, post: { message: 'The world is a dark, dark place', user_id: user.id } }
+      patch :update,
+            params: { id: post.id,
+                      post: { message: 'The world is a dark, dark place', user_id: user.id } }
       expect(Post.find(post.id).message).to eq('The world is a dark, dark place')
     end
 
@@ -66,7 +68,9 @@ RSpec.describe PostsController, type: :controller do
       # allow(User).to receive(:find_by).and_return({ user: {id: 2, email: 'testy@testy.com' }})
       post :create, params: { post: { message: 'Hello, world!', user_id: user.id } }
       post = Post.find_by(message: 'Hello, world!')
-      patch :update, params: { id: post.id, post: { message: 'The world is a dark, dark place', user_id: user2.id } }
+      patch :update,
+            params: { id: post.id,
+                      post: { message: 'The world is a dark, dark place', user_id: user2.id } }
       expect(response).to redirect_to(posts_path)
     end
   end

@@ -41,7 +41,8 @@ RSpec.describe CommentsController, type: :controller do
 
     it "won't let you edit someone elses comment" do
       post = Post.create(message: 'Hello, world!', user_id: user.id)
-      user2 = User.create(id: 2, name: 'Alex', email: 'test2@test.com', password: 'password1', password_confirmation: 'password1')
+      user2 = User.create(id: 2, name: 'Alex', email: 'test2@test.com',
+                          password: 'password1', password_confirmation: 'password1')
       comment = Comment.create(body: 'Comment', user_id: user2.id, post_id: post.id)
       params = { post_id: post.id, id: comment.id }
       get :edit, params: params
@@ -85,7 +86,8 @@ RSpec.describe CommentsController, type: :controller do
 
     it "won't delete a comment if it is not current user" do
       post = Post.create(message: 'Hello, world!', user_id: user.id)
-      user2 = User.create(id: 2, name: 'Alex', email: 'test2@test.com', password: 'password1', password_confirmation: 'password1')
+      user2 = User.create(id: 2, name: 'Alex', email: 'test2@test.com',
+                          password: 'password1', password_confirmation: 'password1')
       comment = Comment.create(body: 'Comment', user_id: user2.id, post_id: post.id)
       params = { id: comment.id, post_id: post.id }
       delete :destroy, params: params

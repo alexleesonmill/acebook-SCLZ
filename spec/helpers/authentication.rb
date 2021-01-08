@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 
 module Helpers
   module Authentication
@@ -53,6 +54,24 @@ module Helpers
       click_link 'New Post'
       fill_in 'Message', with: 'Hello, world!'
       click_button 'Submit'
+    end
+
+    def create_friend_request
+      register_u1_and_create_post
+      click_link 'Sign Out'
+      register_u2_and_create_post
+      click_link 'Timeline'
+      click_link 'Test123'
+      click_link 'Add as friend'
+      view_friend_request
+    end
+
+    def view_friend_request
+      click_link 'Sign Out'
+      sign_in
+      click_link 'Timeline'
+      click_link 'Testy123'
+      click_link 'friend request'
     end
   end
 end
