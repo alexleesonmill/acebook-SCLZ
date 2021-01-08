@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PostsController < ApplicationController
   def new
     @post = Post.new
@@ -23,18 +25,12 @@ class PostsController < ApplicationController
 
   def edit
     @post = Post.find(params[:id])
-    if current_user.id != @post.user_id || Time.now - @post.created_at > 600
-      return
-    end
+    return if current_user.id != @post.user_id || Time.now - @post.created_at > 600
   end
 
   def update
     @post = Post.find(params[:id])
-    if current_user.id == @post.user_id
-      if @post.update(post_params)
-        redirect_to posts_url
-      end
-    end
+    redirect_to posts_url if current_user.id == @post.user_id && @post.update(post_params)
   end
 
   private

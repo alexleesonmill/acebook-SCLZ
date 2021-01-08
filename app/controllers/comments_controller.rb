@@ -15,13 +15,10 @@ class CommentsController < ApplicationController
 
   def edit
     @comment = Comment.find(params[:id])
-    if current_user.id != @comment.user_id
-      flash[:notice] = "You cannot edit someone else's post"
-      redirect_to posts_url
-    elsif Time.now - @comment.created_at > 600
-      flash[:notice] = 'Posts cannot be updated after 10 minutes'
-      redirect_to posts_url
-    end
+    return unless current_user.id != @comment.user_id || Time.now - @comment.created_at > 600
+
+    flash[:notice] = 'You cannot edit this post'
+    redirect_to posts_url
   end
 
   def create
@@ -31,19 +28,17 @@ class CommentsController < ApplicationController
 
   def update
     @comment = Comment.find(params[:id])
-    if current_user.id == @comment.user_id
-      redirect_to posts_url if @comment.update(comment_params)
-    end
+    redirect_to posts_url if current_user.id == @comment.user_id && @comment.update(comment_params)
   end
 
   def destroy
     @comment = Comment.find(params[:id])
-    if current_user.id == @comment.user_id
-      @comment.destroy
-      respond_to do |format|
-        format.html { redirect_to posts_path, notice: 'Comment was successfully deleted.' }
-        format.json { head :no_content }
-      end
+    return unless current_user.id == @comment.user_id
+
+    @comment.destroy
+    respond_to do |format|
+      format.html { redirect_to posts_path, notice: 'Comment was successfully deleted.' }
+      format.json { head :no_content }
     end
   end
 

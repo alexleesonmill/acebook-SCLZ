@@ -2,7 +2,10 @@
 
 require 'simplecov'
 require 'simplecov-console'
-SimpleCov.formatter = SimpleCov::Formatter::Console
+SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
+                                                                 SimpleCov::Formatter::Console,
+                                                                 SimpleCov::Formatter::HTMLFormatter
+                                                               ])
 SimpleCov.start do
   add_filter 'spec/support/controller_macros.rb'
   add_filter 'app/uploaders/picture_uploader.rb'

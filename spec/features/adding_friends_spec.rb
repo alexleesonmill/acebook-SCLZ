@@ -42,7 +42,7 @@ RSpec.feature 'Adding friends', type: :feature do
     expect(page).to have_content 'You are waiting for Test123 to respond to your friend request'
   end
 
-  scenario 'When another user has sent a friend request, the add friend button is no loger visible on their page and replaced with a message' do
+  scenario 'When another user has sent a friend request, the add friend button is no longer visible on their page' do
     register_u1_and_create_post
     click_link 'Sign Out'
     register_u2_and_create_post

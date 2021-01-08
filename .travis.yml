@@ -12,7 +12,8 @@ deploy:
   provider: heroku
   api_key:
     secure: GgwsunofHAEgKbOvMEqe/wwcxwRknH1TTXgSNT/1jqkytPKsYB3O/nPNm7TMgYeiuwlJphuTncOysc1CVTQ2XXe0X42huXEMrNeIZUUHDlCfsyFUNIBHYJ7D/j3+0yqW0TVYUxKoYaEQo9qpQvFxDU0PGnrVBqQUJIGU0h1aVlbgKbwedV+w6ubO681B+dlUHw0LthMorHAWa4776RPEsK2ZfeV4jf9EmPVGEtzsPpzace8dxQuMJewC8HLS8y43d7DemQ5kx+M51gxCLVp5pi1JTDmqgFje4xK8aqAYbbBTYzu0DOYNFuVpyfUxvC4hD2tlr5uurKejsd+HsEZHqOnqh+P+EPn0464tovNjLJqbvALk+nHR/1JhVqoc+lnL0VrnJOWn+Aa8a8Pj6+tVaD9JrwZYe8bwKxJMZLShXzZUXnHhByBCPho0GIYsdiT0r6QSB3mFrppHm1y7tBTnV11e9JrSy01uiwfH9lWJa1ueeVM77o2vHECcmEC0qKQQcDLQrGPKvryi1otv6Ywf5bWn/JIDVrnVvt8b8kf0Uh+NEC/2yEdA+bFTivRuvLs/ExCbokDWdbASArS5z499Pg/yNM7XR2t5PoWlyJ+hkMAxlCuOmBGcxcDqMA8c42MggTBrdJyKIHo4+HGKpDRXQs+NfuaqROUONo2jh88ejag=
-  app: sclz
-  on:
-    repo: alexleesonmill/acebook-SCLZ
-  skip_cleanup: 'true'
+    app: sclz
+    on:
+      repo: alexleesonmill/acebook-SCLZ
+    run: 'rake db:migrate'
+    skip_cleanup: 'true'
