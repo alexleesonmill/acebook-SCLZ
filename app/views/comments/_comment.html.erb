@@ -32,7 +32,7 @@
   </div>
 
   <div class="m-2"> <!--  This div relates to posting time & the edit/delete buttons of the comment -->
-    <p class='is-size-7 is-family-code has-text-info-dark' style="float: right">
+    <p class='is-size-7 is-family-code has-text-info-dark'>
       Commented at <%= comment.created_at.strftime("%k:%M:%S on %B %e, %Y") %>
     </p>
     <% if current_user != nil %>
