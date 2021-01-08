@@ -22,6 +22,8 @@ Rails.application.routes.draw do
 
   get 'friends/requests' => 'friends#requests', :as => :friend_requests
 
+  get 'friends/add/:id' => 'friends#add', :as => :add_friend
+
   get 'friends/accept/:id' => 'friends#accept', :as => :accept_request
 
   get 'friends/decline/:id' => 'friends#decline', :as => :decline_request
