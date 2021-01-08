@@ -34,9 +34,13 @@ gem 'devise'
 
 gem 'acts_as_votable'
 gem 'bulma-rails', '~> 0.9.1'
-gem 'carrierwave'
 gem 'jquery-rails'
 gem 'timecop'
+
+
+gem 'image_processing'
+
+gem 'aws-sdk-s3', require: false
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

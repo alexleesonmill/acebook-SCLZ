@@ -2,7 +2,6 @@
 
 require 'simplecov'
 require 'simplecov-console'
-require 'carrierwave/test/matchers'
 SimpleCov.formatter = SimpleCov::Formatter::Console
 SimpleCov.start do
   add_filter 'spec/support/controller_macros.rb'
