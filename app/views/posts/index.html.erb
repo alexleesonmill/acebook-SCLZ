@@ -1,10 +1,28 @@
-<div class="button is-info is-rounded p-2" style="width: 8%; margin-left: 46%; text-align: center; border: 1px solid #51a7e0; border-radius: 20px">
-  <% if current_user != nil %>
-    <%= link_to 'New Post', new_post_path, :class => "is-family-code is-size-4", :style => "color: #ffffff" %>
-  <% end %>
-</div>
 <head>
+  <style>
+  .widening {
+    width: 8%;
+    margin-left: 46%;
+  }
+    @media only screen and (max-width: 1655px) {
+      .widening {
+        width: 14%;
+        margin-left: 43%;
+      }
+    }
+    @media only screen and (max-width: 850px) {
+      .widening {
+        width: 20%;
+        margin-left: 40%;
+      }
+    }
+  </style>
 </head>
 <body>
+  <% if current_user != nil %>
+    <div class="button is-info is-rounded p-2 widening" style="text-align: center; border: 1px solid #51a7e0; border-radius: 20px">
+    <%= link_to 'New Post', new_post_path, :class => "is-family-code is-size-4", :style => "color: #ffffff" %>
+    </div>
+  <% end %>
   <%= render 'shared/posts_cards' %>
 </body>

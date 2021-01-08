@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.feature 'Respoinding to friend requests', type: :feature do
+RSpec.feature 'Responding to friend requests', type: :feature do
   scenario 'After accepting another user\'s friend request they will appear in your friend list' do
     register_u1_and_create_post
     click_link 'Sign Out'
@@ -18,7 +18,7 @@ RSpec.feature 'Respoinding to friend requests', type: :feature do
     click_link 'Accept Friend Request'
     click_link 'Profile'
     click_link 'Friend List'
-    expect(page).to have_content 'behold, all of my friends:'
+    expect(page).to have_content 'Friends of Test123'
     expect(page).to have_content 'Testy123'
   end
 
@@ -40,7 +40,7 @@ RSpec.feature 'Respoinding to friend requests', type: :feature do
     expect(page).to have_content 'You are friends with Testy123'
     expect(page).not_to have_link 'Add as friend'
     click_link 'Friend List'
-    expect(page).to have_content 'behold, all of my friends:'
+    expect(page).to have_content 'Friends of Testy123'
     expect(page).to have_content 'Test123'
   end
 
@@ -59,7 +59,7 @@ RSpec.feature 'Respoinding to friend requests', type: :feature do
     click_link 'Decline Friend Request'
     click_link 'Profile'
     click_link 'Friend List'
-    expect(page).to have_content 'behold, all of my friends:'
+    expect(page).to have_content 'Friends of Test123'
     expect(page).not_to have_content 'Testy123'
   end
 
@@ -81,7 +81,7 @@ RSpec.feature 'Respoinding to friend requests', type: :feature do
     expect(page).not_to have_content 'You are friends with Testy123'
     expect(page).to have_link 'Add as friend'
     click_link 'Friend List'
-    expect(page).to have_content 'behold, all of my friends:'
+    expect(page).to have_content 'Friends of Testy123'
     expect(page).not_to have_content 'Test123'
   end
 

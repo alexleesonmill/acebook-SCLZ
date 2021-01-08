@@ -2,6 +2,6 @@
   <%= form_for([@current_post, @current_post.comments.build], :html => {:class => "control p-2" }) do |comment| %>
     <%= comment.text_field :body, :placeholder => "Enter comment", :class => 'textarea is-info is-small is-rounded', :rows => 1 %>
     <br>
-    <%= comment.submit "Add Comment", :class => 'button is-info is-rounded p-2' %>
+    <%= comment.submit "Add Comment", :class => 'button is-info is-family-code is-rounded p-2' %>
   <% end %>
 <% end %>

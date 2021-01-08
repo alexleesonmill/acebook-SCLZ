@@ -1,7 +1,11 @@
-behold, all of my friends:
+<div class='rows'>
+<div style="width= 33%; margin-left: 33.5%; margin-top: 30px">
+<p class="is-family-code is-size-3 mb-6">Friends of <%=User.find(params[:id]).name%></p>
 
 <ul>
   <% @friends_list.each do |friend| %>
-  <li><a href="/users/<%= friend.id %>/user_posts"><%= friend.name %></a></li>
+  <li class="mb-3"><a href="/users/<%= friend.id %>/user_posts" class="is-size-5"><%= friend.name %></a></li>
   <% end %>
 </ul>
+</div>
+</div>
