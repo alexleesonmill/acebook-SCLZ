@@ -1,24 +1,17 @@
 # AceBook
 [![Build Status](https://travis-ci.com/alexleesonmill/acebook-SCLZ.svg?branch=master)](https://travis-ci.com/alexleesonmill/acebook-SCLZ)
+[![Maintainability](https://api.codeclimate.com/v1/badges/8524b45c42b0c111b44b/maintainability)](https://codeclimate.com/github/alexleesonmill/acebook-SCLZ/maintainability)
 
-We are using a github project board for planning and github wiki for documentation.
+[Information](#Information) | [Quickstart](#Quickstart) | [Running Tests](#Running-Tests) | [Planning](#Planning)  [Technologies](#Technologies) | [Team SCLZ](#Team-SCLZ)
 
+## Information
 
-## Entity Relationship Diagram
+#### Our project is deployed on Heroku [here](https://sclz.herokuapp.com/).
 
-<img width="771" alt="Screenshot 2020-12-14 at 17 05 56" src="https://user-images.githubusercontent.com/59441094/102111966-f5e86d00-3e2e-11eb-9d43-e316faa72fcc.png">
+We used [Github Projects](https://github.com/alexleesonmill/acebook-SCLZ/projects) for planning.
 
-REQUIRED INSTRUCTIONS:
+We used [Github Wiki](https://github.com/alexleesonmill/acebook-SCLZ/wiki) for relevant information we found whilst working on SCLZ.
 
-1. Fork this repository to `acebook-teamname` and customize
-the below**
-
-[You can find the engineering project outline here.](https://github.com/makersacademy/course/tree/master/engineering_projects/rails)
-
-2. The card wall is here: <please update>
-
-## How to contribute to this project
-See [CONTRIBUTING.md](CONTRIBUTING.md)
 
 ## Quickstart
 
@@ -32,3 +25,33 @@ First, clone this repository. Then:
 > bundle exec rspec # Run the tests to ensure it works
 > bin/rails server # Start the server at localhost:3000
 ```
+
+## Running Tests
+from root folder, run the following command
+```bash
+$ rspec 
+```
+
+## Planning
+We spent the first two days of the project planning and diagramming. The details of our user stories, planning and diagramming can be found in our [wiki](https://github.com/alexleesonmill/acebook-SCLZ/wiki).
+
+## Technologies
+
+| Area                 | Technology                 |
+| -------------------- | -------------------------- |
+| Frameworks           | Ruby on Rails              |
+| Languages            | Ruby, Javascript (jQuery), HTML5, CSS3|
+| Database             | PostgreSQL                 |
+| CI/CD                | Travis                     |
+| Hosting              | Heroku                     |
+| Storage              | Dev: Local / Heroku: AWS S3|
+| Testing and Coverage | RSpec, Capybara, Simplecov |
+
+## Team-SCLZ
+
+Our wonderful team was made up of:
+
+- [Alex Leeson-Mill](https://github.com/alexleesonmill)
+- [Adam Grieve](https://github.com/AdamusBG)
+- [Chris Walsh](https://github.com/Walshy92)
+- [Georgie Horth](https://github.com/horthbynorthwest)
